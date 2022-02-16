@@ -1,0 +1,31 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="totalAmount" type="Double" />
+    <aura:attribute name="tip" type="Double" />
+    <aura:attribute name="people" type="Double" />
+    <aura:attribute name="split" type="String" />
+    <div style="max-width:500px; padding:10px">
+        <br/>
+        <div style="background-color:#ffff00; border:1px solid black;border-radius:25px 25px 0px 0px">
+            <p style="font-size:30px; font-weight:bold; padding:10px">Tip Calculator</p>
+        </div>
+        <div style="border:1px solid black; padding:10px; background-color: white">
+            <lightning:input type="number" aura:id="totalAmount" label="$ Total bill amount ?" value="{!v.totalAmount}" required="true"/>
+            <br/>
+            <lightning:select aura:id="tip" label="How was the service?" required="true" value="{!v.tip}">
+                <option value="">choose one...</option>
+                <option value="30">Very Good</option>
+                <option value="20">Good</option>
+                <option value="10">Average</option>
+                <option value="5">Not Good</option>
+            </lightning:select>
+            <br/>
+            <lightning:input type="number" aura:id="people" label="Number of People" value="{!v.people}" />
+            <br/>
+            <lightning:button variant="success" label="Calculate" title="Success" onclick="{! c.handleClick }"/>
+            <br/>
+            <br/>
+           <p style="font-size:20px">{!v.split}</p> 
+            <br/>
+        </div>
+    </div>
+</aura:component>
